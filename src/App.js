@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import {LoginPage} from './pages/LoginPage';
+import {SignUpPage} from './pages/SignUpPage';
+import { Suspense } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { GlobalStyle } from './GlobalStyle';
+import { lazy } from 'react';
 
-function App() {
+const HomePage = lazy(() => import('../pages/HomePage'));
+const MoviesPage = lazy(() => import('../pages/MoviesPage'));
+const MovieReviewPage = lazy(() => import('../pages/MovieReviewPage'));
+
+export const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <>
+    <Suspense>
+      <Routes>
 
-export default App;
+            <Route index element={<HomePage />} />
+            <Route path='moviespage' element={<MoviesPage />} />
+            <Route path='moviespage/:movieId' element={<MovieReviewPage />} />      
+          
+          <Route path='/loginpage' element={<LoginPage />} />
+          <Route path='/signuppage' element={<SignUpPage />} />    
+      </Routes>
+    </Suspense>
+    <GlobalStyle/>
+    </>
+  );
+};
