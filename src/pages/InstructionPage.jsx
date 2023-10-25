@@ -1,8 +1,8 @@
-import { InputInstruction } from "../components/ElementToCaver/Button/Button";
+import { Button } from "../components/ElementToCaver/Button/Button";
 
 const InstructionPage = () => {
     return (
-        <InputInstruction />
+        <Button />
     )
 };
 
