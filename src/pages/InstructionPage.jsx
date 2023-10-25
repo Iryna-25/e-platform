@@ -2,7 +2,9 @@ import { Button } from "../components/ElementToCaver/Button/Button";
 
 const InstructionPage = () => {
     return (
-        <Button />
+        <Button 
+            text="Instruction"
+        />
     )
 };
 
