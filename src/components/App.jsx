@@ -1,18 +1,19 @@
+import MaterialsPage from "../pages/MaterialsPage";
+import HomePage from "../pages/HomePage";
+import InstructionPage from "../pages/InstructionPage";
 import {LoginPage} from '../pages/LoginPage';
 import {SignUpPage} from '../pages/SignUpPage';
-import { Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { GlobalStyle } from './GlobalStyle';
-import { lazy } from 'react';
+// import { lazy } from 'react';
 
-const HomePage = lazy(() => import('../pages/HomePage'));
-const MaterialsPage = lazy(() => import('../pages/MaterialsPage'));
-const InstructionPage = lazy(() => import('../pages/InstructionPage'));
+// const HomePage = lazy(() => import('../pages/HomePage'));
+// const MaterialsPage = lazy(() => import('../pages/MaterialsPage'));
+// const InstructionPage = lazy(() => import('../pages/InstructionPage'));
 
 export const App = () => {
   return (
     <>
-    <Suspense>
       <Routes>
 
             <Route index element={<HomePage />} />
@@ -22,7 +23,6 @@ export const App = () => {
           <Route path='/loginpage' element={<LoginPage />} />
           <Route path='/signuppage' element={<SignUpPage />} />    
       </Routes>
-    </Suspense>
     <GlobalStyle/>
     </>
   );
